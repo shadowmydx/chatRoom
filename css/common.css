@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.button {
+	border:1px solid #BDCFE4; 
+	border-radius: 3px;
+	background: none repeat scroll 0 0 #82C400; 
+	width:80px; //按钮的长度 
+	height:80px; //按钮的高度 
+	border-width: 0; //边框为0 
+	font-size: 17px; //字体大小 
+	color: #FFFFFF; //字体颜色 
+	font-weight: 500; //字体加重 
+	border-radius: 6px; //圆角 
+	cursor:pointer; //指针形式：手型 
+	text-align:center;
+}
+
+#chatbody {
+	width:200px;
+	height:200px;
+}

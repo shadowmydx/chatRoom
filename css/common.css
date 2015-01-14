@@ -16,6 +16,15 @@
 }
 
 #chatbody {
-	width:200px;
-	height:200px;
+	border:1px solid #BDCFE4;
+	width:600px;
+	height:500px;
+	overflow-y:auto;
+	float:left;
+}
+
+#user {
+	width:500px;
+	height:500px;
+	float:right;
 }

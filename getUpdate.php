@@ -7,6 +7,6 @@ $_SESSION['max'] = getNowRow();
 if ($max == $_SESSION['max']) {
 	echo "";
 } else { 
-	echo getUpdateData($max);
+  echo getUpdateData($max);
 }
 ?>

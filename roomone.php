@@ -2,7 +2,7 @@
 	require_once 'protected/config.php';
 	require_once 'protected/GenerUtil.php';
 	if (!isset($_SESSION['max'])) {
-		$_SESSION['max'] = 0;
+		$_SESSION['max'] = getNowRow();
 	}
 ?>
 <html>
@@ -15,9 +15,11 @@
 	<body>
 		<div id="chatbody" class="chatdialog">
 		</div>
-		<p>作者</p>
-		<input id="author" type="text" name="name" value=""/> <br />
-		<textarea id="content" rows="10" cols="20" name="value"></textarea>
-		<div id="submit" class="button">提交</div>
+		<div id="user">
+			<p>作者</p>
+			<input id="author" type="text" name="name" value=""/> <br />
+			<textarea id="content" rows="10" cols="20" name="value"></textarea>
+			<div id="submit" class="button">提交</div>
+		</div>
 	</body>
 </html>

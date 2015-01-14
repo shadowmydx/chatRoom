@@ -20,7 +20,9 @@
 	
 	function generateResArray($connect,$max) {
 		$res  = array();
-		$stmt = $connect->query("SELECT * FROM content LIMIT ".$max.",-1");
+		$now  = getNowRow();
+		$tmp  = intval($now) - intval($max) + 1;
+		$stmt = $connect->query("SELECT * FROM content LIMIT ".$max.",$tmp"); // 
 		$stmt->execute();
 		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$res[] = $row;
@@ -29,7 +31,13 @@
 	}
 	
 	function changeTo($res) {
-		
+		$str = "";
+		foreach ($res as $tar) {
+			$str = $str.$tar['content_author'] . ":" .
+				   "<br />" . $tar['content_body'] .
+				   "<hr />";
+		}
+		return $str;
 	}
 	
 	function getUpdateData($max) {

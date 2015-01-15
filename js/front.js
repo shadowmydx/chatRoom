@@ -36,6 +36,11 @@ function getUpdateData() {
 	update.onreadystatechange = showChange;
 }
 
+function changeSpace(content) {
+	content = content.replace("\n","<br />");
+	return content;
+}
+
 function publishData() {
 	var url     = "publishContent.php";
 	var name    = document.getElementById("author").value;
@@ -44,7 +49,8 @@ function publishData() {
 		alert("nothing!");
 		return;
 	}
-	url = url + "?content=" + content + "&name=" + name;
+	content = changeSpace(content); 
+	url     = url + "?content=" + content + "&name=" + name;
 	publish.open("GET",url,true);
 	publish.send(null);
 	publish.onreadystatechange = getUpdateData;
@@ -55,5 +61,5 @@ window.onload = function() {
 	document.getElementById("submit").onclick = function() {
 		publishData();
 	}
-	setInterval(getUpateData,1000);
+	setInterval(getUpdateData,1000);
 }

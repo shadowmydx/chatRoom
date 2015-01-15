@@ -17,13 +17,14 @@ function updateScroll() {
 
 function showChange() {
 	if (update.readyState == 4) {
-		var body    = document.getElementById("chatbody");
-		var dialog  = document.createElement("p");
 		var content = update.responseText;
-		dialog.innerHTML = update.responseText;
-		body.appendChild(dialog);
-		if (content.length > 0) { // 如果内容更新了
-			updateScroll();   // 添加完文本后，重置滚动条到最底部
+		if (content.length > 0) { //如果有内容更改
+			var body    = document.getElementById("chatbody");
+			var dialog  = document.createElement("p");
+			dialog.innerHTML = update.responseText;
+			body.appendChild(dialog);
+			updateScroll(); // 添加完文本后，重置滚动条到最底部
+			
 		}
 	}
 }
@@ -46,6 +47,7 @@ function publishData() {
 	url = url + "?content=" + content + "&name=" + name;
 	publish.open("GET",url,true);
 	publish.send(null);
+	publish.onreadystatechange = getUpdateData;
 	document.getElementById("content").value = "";
 }
 
@@ -53,5 +55,5 @@ window.onload = function() {
 	document.getElementById("submit").onclick = function() {
 		publishData();
 	}
-	setInterval(getUpdateData,300);
+	setInterval(getUpateData,1000);
 }
